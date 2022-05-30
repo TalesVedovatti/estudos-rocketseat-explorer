@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --ff-heading: 'Epilogue', sans-serif;
+    
+
+    --hue: 250;
+    --bg-primary: hsl(var(--hue), 22%, 20%);
+    --fc-primary: hsl(var(--hue), 0%, 100%);
+    --fc-secundary: hsl(var(--hue), 100%, 11%);
+
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: var(--ff-heading);
+    
+}
+
+.page {
+    max-width: clamp(33rem, 12rem + 52vw, 117rem);
+    padding: 0 5rem;
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+    gap: 3.2rem;
+    animation: downtop 700ms 350ms backwards;
+}
+
+header, h2 {
+    color: var(--fc-primary);
+    font-weight: 800;
+}
+
+header{
+    font-size: clamp(4rem, 1rem + 5vw, 5.6rem);
+    line-height: 4.8rem;
+    text-align: center;
+    margin: 10.6px auto 8rem auto;
+    animation-name: topdown;
+    animation-duration: 700ms;
+}
+
+header span {
+    color: hsl(var(--hue), 50%, 80%, 1);
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 1.7rem;
+}
+
+.card {
+    position: relative;
+}
+
+.card img {
+
+    object-fit: cover;
+    border-radius: 6px;
+    transition-property: all;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+    width: 100%;
+    height: 41.8rem;
+    filter: brightness(0.5);
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+    filter: brightness(1);
+}
+
+.card h2 {
+    position: absolute;
+    bottom: 5.1rem;
+    left: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    font-size: clamp(3rem, 0.5rem + 1vw, 4.4rem);
+    line-height: 4.8rem;
+}
+
+.card h2 span {
+    color: var(--fc-secundary);
+    font-weight: 400;
+    border-radius: 2rem;
+    background-color: var(--fc-primary);
+    padding: 0 1.6rem;
+    height: 3.8rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    width: fit-content;
+
+}
+
+.card h2 span:hover {
+    background-color: hsl(var(--hue), 0%, 70%);;
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 800px) {
+
+    .page{
+        padding: 0 5rem;
+    }
+    main {
+        grid-template-areas: 'imgA imgB'
+        'imgC imgD';
+        grid-template-columns: 50% 50%;
+    }
+    main div:nth-child(1) {
+        grid-area: imgA;
+    }
+    main div:nth-child(2) {
+        grid-area: imgB;
+    }
+    main div:nth-child(3) {
+        grid-area: imgC;
+    }
+    main div:nth-child(4) {
+        grid-area: imgD;
+    }
+
+}
+
+@media (min-width:950px) {
+
+    header p{
+        line-height: 6.4rem;
+    }
+    main {
+        grid-template-areas: 'imgA imgB imgB'
+        'imgC imgC imgD';
+        grid-template-columns: 33% auto 33%;
+    }
+    main div:nth-child(1) {
+        grid-area: imgA;
+    }
+    main div:nth-child(2) {
+        grid-area: imgB;
+    }
+    main div:nth-child(3) {
+        grid-area: imgC;
+    }
+    main div:nth-child(4) {
+        grid-area: imgD;
+    }
+
+ 
+}
