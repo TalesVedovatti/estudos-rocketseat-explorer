@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --bg-color: hsl(0, 0%, 100%);
+    --font-color: hsl(240, 6%, 21%);
+    --button-bg-color: hsl(240, 9%, 89%);
+    --select-bg-color: hsl(194, 97%, 31%);
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: clamp(62.9rem,62.9rem + 10vw,82.1rem);
+    margin: 19.6rem auto auto;
+}
+
+.stopwatch{
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+}
+
+.stopwatch .timer {
+    display: flex;
+    align-items: center;
+
+    width: 32.1rem;
+    
+}
+
+.timer span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12.6rem;
+    line-height: 14.8rem;
+    color: var(--font-color);
+}
+
+.stopwatch .timerButtons {
+    display: flex;
+    justify-content: space-between;
+    line-height: 4.8rem;
+}
+
+.stopwatch .timerButtons button {
+    background-color: transparent;
+    border: none;
+    height: 4.8rem;
+    fill: var(--font-color);
+}
+
+.soundButtons {
+    display: grid;
+    grid-template-columns:auto auto;
+    width: 30.8rem;
+    gap: 3.2rem;
+    padding: 0;
+}
+
+.soundButtons button {
+    background: var(--button-bg-color);
+    border-radius: 24px;
+    border: none;
+    height: 15.2rem;
+    width: 13.8rem;
+}
+
+.soundButtons .selected {
+    background: var(--select-bg-color);
+}
+
+.soundButtons .selected svg path {
+    fill: var(--bg-color);
+}
+
+.timerButtons .selected svg path {
+    fill: var(--select-bg-color);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+.timerButtons .addTimer:hover svg path,
+.timerButtons .subTimer:hover svg path {
+    fill: var(--select-bg-color);
+}
+
+@media (max-width: 800px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        gap: 3.2rem;
+    }
+}
+
